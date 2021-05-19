@@ -34,7 +34,7 @@ export const SeatPicker = ({ seats }) => {
         type="button"
         disabled={selectedSeatNumber === null}
       >
-        Koupit
+        Rezervovat
       </button>
     </div>
   );
