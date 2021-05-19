@@ -4,7 +4,6 @@ import { SeatPicker } from '../SeatPicker'
 
 export const Home = () => (
 	<>
-		<h2>Home</h2>
 		<JourneyPicker />
 		<SeatPicker />
 	</>
