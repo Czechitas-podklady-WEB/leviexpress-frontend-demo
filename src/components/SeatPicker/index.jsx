@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const SeatPicker = () => {
 	const [seats] = useState(() =>
@@ -15,6 +16,7 @@ export const SeatPicker = () => {
 					</li>
 				))}
 			</ul>
+			<Link to={`/journey/${'a456xc'}`}>Přejít ne detail rezervace</Link>
 		</div>
 	)
 }
