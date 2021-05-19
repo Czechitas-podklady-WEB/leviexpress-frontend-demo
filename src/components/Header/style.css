@@ -1,7 +1,7 @@
 header {
   padding-top: 1px;
   height: 305px;
-  
+
   color: white;
   background-color: #69bffc;
   background-image: url(./img/banner.png);
@@ -14,7 +14,9 @@ header {
   margin: 0.5rem 0;
 }
 
-.site-title a, .site-title a:active, .site-title a:visited {
+.site-title a,
+.site-title a:active,
+.site-title a:visited {
   color: white;
   text-decoration: none;
 }
