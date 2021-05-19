@@ -10,6 +10,11 @@ header {
   background-repeat: no-repeat;
 }
 
-header h1 {
+.site-title {
   margin: 0.5rem 0;
+}
+
+.site-title a, .site-title a:active, .site-title a:visited {
+  color: white;
+  text-decoration: none;
 }

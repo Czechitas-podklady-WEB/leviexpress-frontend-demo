@@ -5,7 +5,9 @@ import './style.css';
 export const Header = () => (
 	<header>
 		<div className="container">
-			<Link to="/">Leviexpress</Link>
+			<h1 className="site-title">
+				<Link to="/">LeviExpress</Link>
+			</h1>
 		</div>
 	</header>
 )
