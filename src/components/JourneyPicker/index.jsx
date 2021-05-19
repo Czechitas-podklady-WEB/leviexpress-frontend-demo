@@ -46,19 +46,19 @@ export const JourneyPicker = () => {
       <div className="journey-picker__head">Kam chcete jet?</div>
       <form onSubmit={handleSubmit}>
         <label>
-          Z:
+          <div className="journey-picker__label">Odkud:</div>
           <select>
             <CityOptions cities={cities} />
           </select>
         </label>
         <label>
-          Do:
+          <div className="journey-picker__label">Kam:</div>
           <select>
             <CityOptions cities={cities} />
           </select>
         </label>
         <label>
-          Datum:
+          <div className="journey-picker__label">Datum:</div>
           <select>
             <DatesOptions dates={dates} />
           </select>

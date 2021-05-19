@@ -17,3 +17,17 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
+
+
+select {
+  padding: 0.5rem;
+  
+  border: none;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 0 0 3px gray;
+}
+
+select:focus {
+  outline: none;
+}

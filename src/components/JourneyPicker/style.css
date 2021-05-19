@@ -13,3 +13,13 @@
   font-size: 120%;
   font-weight: bold;
 }
+
+.journey-picker__label {
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.journey-picker select {
+  display: block;
+  width: 100%;
+}
