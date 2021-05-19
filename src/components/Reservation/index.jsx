@@ -1,39 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { apiBaseUrl } from '../..';
 import './style.css';
+
+const ReservationInner = ({ fromCity, toCity, date, seatNumber }) => (
+  <p>
+    Dne <strong>{date}</strong> jedete z <strong>{fromCity}</strong> do{' '}
+    <strong>{toCity}</strong> na sedadle <strong>{seatNumber}</strong>.
+  </p>
+);
 
 export const Reservation = () => {
   const { id } = useParams();
 
-  const [stops] = useState(() => [
-    {
-      name: 'Praha',
-      time: '00:05',
-    },
-    {
-      name: 'Říčany',
-      time: '00:37',
-    },
-    {
-      name: 'Brno',
-      time: '02:00',
-    },
-  ]);
-  const [seat] = React.useState(32);
+  const [reservation, setResetvation] = useState(null);
+  useEffect(() => {
+    const url = new URL(`${apiBaseUrl}/reservation`);
+    url.searchParams.append('id', id);
+
+    fetch(url.toString())
+      .then((response) => response.json())
+      .then((data) => setResetvation(data.data));
+  }, []);
 
   return (
     <div className="reservation">
       <h2>Detail cesty {id}</h2>
-      <p>
-        Sedíte na sedadle číslo <strong>{seat + 1}</strong>.
-      </p>
-      <ul>
-        {stops.map((stop, i) => (
-          <li key={i}>
-            {stop.name} ({stop.time})
-          </li>
-        ))}
-      </ul>
+      {reservation && <ReservationInner {...reservation} />}
     </div>
   );
 };

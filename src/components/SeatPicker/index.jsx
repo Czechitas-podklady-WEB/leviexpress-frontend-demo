@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { apiBaseUrl } from '../..';
 import { Seat } from '../Seat';
 
-export const SeatPicker = ({ seats }) => {
+export const SeatPicker = ({ seats, journeyId }) => {
   const [selectedSeatNumber, setSelectedSeatNumber] = useState(null);
 
   const history = useHistory();
   const handleBuy = () => {
-    // @TODO: post choice
-    history.push(`/reservation/${'a456xc'}`);
+    const url = new URL(`${apiBaseUrl}/reserve`);
+    url.searchParams.append('seat', selectedSeatNumber);
+    url.searchParams.append('journey', journeyId);
+
+    fetch(url.toString(), {
+      method: 'post',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        history.push(`/reservation/${data.data.reservationId}`);
+      });
   };
 
   return (
