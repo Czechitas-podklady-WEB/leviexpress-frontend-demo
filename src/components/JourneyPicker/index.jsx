@@ -1,22 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { apiBaseUrl } from '../..'
+
+const CityOptions = ({ cities }) => (
+	<>
+		<option>Vyberte</option>
+		{cities.map((city) => (
+			<option key={city.code}>{city.name}</option>
+		))}
+	</>
+)
 
 export const JourneyPicker = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 	}
 
+	const [cities, setCities] = useState([])
+	useEffect(() => {
+		fetch(`${apiBaseUrl}/cities`)
+			.then((response) => response.json())
+			.then((data) => setCities(data.data))
+	}, [])
+
 	return (
 		<form onSubmit={handleSubmit}>
 			<label>
 				Z:
 				<select>
-					<option>@TODO</option>
+					<CityOptions cities={cities} />
 				</select>
 			</label>
 			<label>
 				Do:
 				<select>
-					<option>@TODO</option>
+					<CityOptions cities={cities} />
 				</select>
 			</label>
 			<label>
