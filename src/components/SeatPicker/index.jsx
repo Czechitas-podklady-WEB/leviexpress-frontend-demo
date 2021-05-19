@@ -1,20 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Seat } from '../Seat';
 
 export const SeatPicker = ({ seats }) => {
+  const [selectedSeatNumber, setSelectedSeatNumber] = useState(null);
+
+  const history = useHistory();
+  const handleBuy = () => {
+    // @TODO: post choice
+    history.push(`/reservation/${'a456xc'}`);
+  };
+
   return (
     <div>
       <h3>Vyberte sedadlo</h3>
-      <Seat number="15" />
-      <ul>
-        {seats.map((isOccupied, i) => (
-          <li key={i}>
-            Sedadlo ({i + 1}): {isOccupied ? 'obsazeno' : 'volné'}
-          </li>
+      <div>
+        {seats.map((row, i) => (
+          <div key={i}>
+            {row.map((seat, k) => (
+              <Seat
+                key={k}
+                number={seat.number}
+                isOccupied={seat.isOccupied}
+                isSelected={seat.number === selectedSeatNumber}
+                onSelect={setSelectedSeatNumber}
+              />
+            ))}
+          </div>
         ))}
-      </ul>
-      <Link to={`/reservation/${'a456xc'}`}>Přejít na detail rezervace</Link>
+      </div>
+      <button
+        onClick={handleBuy}
+        type="button"
+        disabled={selectedSeatNumber === null}
+      >
+        Koupit
+      </button>
     </div>
   );
 };

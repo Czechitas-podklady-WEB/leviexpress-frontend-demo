@@ -18,10 +18,8 @@ body {
   margin-left: auto;
 }
 
-
 select {
   padding: 0.5rem;
-  
   border: none;
   border-radius: 1rem;
   background-color: white;
@@ -30,6 +28,11 @@ select {
 
 select:focus {
   outline: none;
+}
+
+button:not([disabled]),
+label {
+  cursor: pointer;
 }
 
 .btn {
