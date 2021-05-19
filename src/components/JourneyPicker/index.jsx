@@ -22,9 +22,10 @@ const DatesOptions = ({ dates }) => (
   </>
 );
 
-export const JourneyPicker = () => {
+export const JourneyPicker = ({ onJourneyChange }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
+    onJourneyChange('@TODO');
   };
 
   const [cities, setCities] = useState([]);
