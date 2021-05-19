@@ -1,11 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const SeatPicker = () => {
-  const [seats] = useState(() =>
-    new Array(35).fill(false).map(() => Math.random() < 0.2),
-  );
-
+export const SeatPicker = ({ seats }) => {
   return (
     <div>
       <h3>Vyberte sedadlo</h3>

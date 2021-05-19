@@ -25,7 +25,17 @@ const DatesOptions = ({ dates }) => (
 export const JourneyPicker = ({ onJourneyChange }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    onJourneyChange('@TODO');
+
+    const url = new URL(`${apiBaseUrl}/journey`);
+    url.searchParams.append('fromCity', fromCity);
+    url.searchParams.append('toCity', toCity);
+    url.searchParams.append('date', date);
+
+    fetch(url.toString())
+      .then((response) => response.json())
+      .then((data) => {
+        onJourneyChange(data.data);
+      });
   };
 
   const [fromCity, setFromCity] = useState('');

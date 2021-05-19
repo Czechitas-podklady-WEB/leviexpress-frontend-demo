@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <>
       <JourneyPicker onJourneyChange={setJourney} />
-      {journey && <SeatPicker />}
+      {journey && <SeatPicker seats={journey.seats} />}
     </>
   );
 };
