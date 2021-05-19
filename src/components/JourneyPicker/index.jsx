@@ -51,7 +51,6 @@ export const JourneyPicker = ({ onJourneyChange }) => {
       <div className="journey-picker__head">Kam chcete jet?</div>
       <form onSubmit={handleSubmit}>
         <label>
-          {JSON.stringify(fromCity)}
           <div className="journey-picker__label">Odkud:</div>
           <select
             value={fromCity}
