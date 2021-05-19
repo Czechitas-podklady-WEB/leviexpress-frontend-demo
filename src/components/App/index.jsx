@@ -1,22 +1,17 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Footer } from '../Footer'
+import { Header } from '../Header'
+import { Home } from '../Home'
 
 export const App = () => (
-	<div className="container">
-		<header>
-			<div className="logo"></div>
-			<h1>Webová aplikace</h1>
-		</header>
-		<main>
-			<p>
-				Startovací šablona pro webovou aplikaci v Reactu. Vytvořeno pomocí{' '}
-				<a href="https://www.npmjs.com/package/create-czechitas-app">
-					create-czechitas-app
-				</a>
-				.
-			</p>
-		</main>
-		<footer>
-			<p>Czechitas, Digitální akademie: Web</p>
-		</footer>
-	</div>
+	<Router>
+		<Header />
+		<Switch>
+			<Route path="/" exact>
+				<Home />
+			</Route>
+		</Switch>
+		<Footer />
+	</Router>
 )
