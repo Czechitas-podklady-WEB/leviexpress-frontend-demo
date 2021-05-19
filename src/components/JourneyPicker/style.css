@@ -15,8 +15,13 @@
 }
 
 .journey-picker__label {
-  padding-top: 0.5rem;
+  padding-top: 0.75rem;
   padding-bottom: 0.25rem;
+}
+
+.journey-picker__controls {
+  margin-top: 2rem;
+  text-align: right;
 }
 
 .journey-picker select {

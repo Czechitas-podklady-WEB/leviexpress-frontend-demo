@@ -77,9 +77,11 @@ export const JourneyPicker = ({ onJourneyChange }) => {
             <DatesOptions dates={dates} />
           </select>
         </label>
-        <button type="submit" disabled={!fromCity || !toCity || !date}>
-          Vyhledat spoj
-        </button>
+        <div className="journey-picker__controls">
+          <button className="btn" type="submit" disabled={!fromCity || !toCity || !date}>
+            Vyhledat spoj
+          </button>
+        </div>
       </form>
     </div>
   );
