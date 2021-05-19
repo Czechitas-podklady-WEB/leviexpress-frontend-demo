@@ -1,0 +1,10 @@
+.seat {
+  width: 3rem;
+  height: 3rem;
+}
+
+.seat__number {
+  fill: #000000;
+  font-family: "Open Sans";
+  font-size: 36px;
+}
