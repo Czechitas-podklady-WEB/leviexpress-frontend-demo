@@ -4,7 +4,7 @@ import './style.css';
 
 const CityOptions = ({ cities }) => (
   <>
-    <option>Vyberte</option>
+    <option value="">Vyberte</option>
     {cities.map((city) => (
       <option key={city.code} value={city.code}>
         {city.name}
@@ -15,7 +15,7 @@ const CityOptions = ({ cities }) => (
 
 const DatesOptions = ({ dates }) => (
   <>
-    <option>Vyberte</option>
+    <option value="">Vyberte</option>
     {dates.map((date) => (
       <option key={date}>{date}</option>
     ))}
@@ -27,6 +27,10 @@ export const JourneyPicker = ({ onJourneyChange }) => {
     event.preventDefault();
     onJourneyChange('@TODO');
   };
+
+  const [fromCity, setFromCity] = useState('');
+  const [toCity, setToCity] = useState('');
+  const [date, setDate] = useState('');
 
   const [cities, setCities] = useState([]);
   useEffect(() => {
@@ -47,24 +51,36 @@ export const JourneyPicker = ({ onJourneyChange }) => {
       <div className="journey-picker__head">Kam chcete jet?</div>
       <form onSubmit={handleSubmit}>
         <label>
+          {JSON.stringify(fromCity)}
           <div className="journey-picker__label">Odkud:</div>
-          <select>
+          <select
+            value={fromCity}
+            onChange={(event) => setFromCity(event.target.value)}
+          >
             <CityOptions cities={cities} />
           </select>
         </label>
         <label>
           <div className="journey-picker__label">Kam:</div>
-          <select>
+          <select
+            value={toCity}
+            onChange={(event) => setToCity(event.target.value)}
+          >
             <CityOptions cities={cities} />
           </select>
         </label>
         <label>
           <div className="journey-picker__label">Datum:</div>
-          <select>
+          <select
+            value={date}
+            onChange={(event) => setDate(event.target.value)}
+          >
             <DatesOptions dates={dates} />
           </select>
         </label>
-        <button type="submit">Vyhledat spoj</button>
+        <button type="submit" disabled={!fromCity || !toCity || !date}>
+          Vyhledat spoj
+        </button>
       </form>
     </div>
   );
