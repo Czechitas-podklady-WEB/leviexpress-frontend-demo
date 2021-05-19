@@ -6,7 +6,7 @@ header {
   background-color: #69bffc;
   background-image: url(./img/banner.png);
   background-size: contain;
-  background-position: center;
+  background-position: center bottom;
   background-repeat: no-repeat;
 }
 
