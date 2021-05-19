@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 import { Home } from '../Home';
-import { JourneyDetail } from '../JourneyDetail';
+import { Reservation } from '../Reservation';
 
 export const App = () => (
   <Router>
@@ -12,8 +12,8 @@ export const App = () => (
       <Route path="/" exact>
         <Home />
       </Route>
-      <Route path="/journey/:id" exact>
-        <JourneyDetail />
+      <Route path="/reservation/:id" exact>
+        <Reservation />
       </Route>
     </Switch>
     <Footer />

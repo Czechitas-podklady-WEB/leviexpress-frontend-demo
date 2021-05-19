@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
+import './style.css';
 
-export const JourneyDetail = () => {
+export const Reservation = () => {
   const { id } = useParams();
 
   const [stops] = useState(() => [
@@ -21,7 +22,7 @@ export const JourneyDetail = () => {
   const [seat] = React.useState(32);
 
   return (
-    <div>
+    <div className="reservation">
       <h2>Detail cesty {id}</h2>
       <p>
         Sedíte na sedadle číslo <strong>{seat + 1}</strong>.

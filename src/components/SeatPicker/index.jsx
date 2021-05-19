@@ -12,7 +12,7 @@ export const SeatPicker = ({ seats }) => {
           </li>
         ))}
       </ul>
-      <Link to={`/journey/${'a456xc'}`}>Přejít ne detail rezervace</Link>
+      <Link to={`/reservation/${'a456xc'}`}>Přejít na detail rezervace</Link>
     </div>
   );
 };
