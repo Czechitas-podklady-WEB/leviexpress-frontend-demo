@@ -6,7 +6,18 @@ const CityOptions = ({ cities }) => (
   <>
     <option>Vyberte</option>
     {cities.map((city) => (
-      <option key={city.code}>{city.name}</option>
+      <option key={city.code} value={city.code}>
+        {city.name}
+      </option>
+    ))}
+  </>
+);
+
+const DatesOptions = ({ dates }) => (
+  <>
+    <option>Vyberte</option>
+    {dates.map((date) => (
+      <option key={date}>{date}</option>
     ))}
   </>
 );
@@ -21,6 +32,13 @@ export const JourneyPicker = () => {
     fetch(`${apiBaseUrl}/cities`)
       .then((response) => response.json())
       .then((data) => setCities(data.data));
+  }, []);
+
+  const [dates, setDates] = useState([]);
+  useEffect(() => {
+    fetch(`${apiBaseUrl}/dates`)
+      .then((response) => response.json())
+      .then((data) => setDates(data.data));
   }, []);
 
   return (
@@ -42,7 +60,7 @@ export const JourneyPicker = () => {
         <label>
           Datum:
           <select>
-            <option>@TODO</option>
+            <DatesOptions dates={dates} />
           </select>
         </label>
         <button type="submit">Vyhledat spoj</button>
