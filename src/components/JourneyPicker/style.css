@@ -14,7 +14,7 @@
 
 .journey-picker__form {
   flex: 1;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .journey-picker__label {
@@ -32,6 +32,6 @@
 }
 
 .journey-picker__map {
-  width: 20rem;
+  width: 26rem;
   height: auto;
 }
