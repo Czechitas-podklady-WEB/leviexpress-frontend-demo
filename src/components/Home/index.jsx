@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { JourneyDetail } from '../JourneyDetail';
 import { JourneyPicker } from '../JourneyPicker';
 import { SeatPicker } from '../SeatPicker';
 
@@ -8,7 +9,12 @@ export const Home = () => {
   return (
     <>
       <JourneyPicker onJourneyChange={setJourney} />
-      {journey && <SeatPicker seats={journey.seats} journeyId={journey.id} />}
+      { journey && (
+        <>
+          <JourneyDetail journey={journey} />
+          <SeatPicker seats={journey.seats} journeyId={journey.id} />
+        </>
+      )}
     </>
   );
 };
