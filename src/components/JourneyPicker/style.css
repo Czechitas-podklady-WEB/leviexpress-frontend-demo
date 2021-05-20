@@ -8,11 +8,6 @@
   box-shadow: 0 0 5px gray;
 }
 
-.journey-picker__head {
-  font-size: 120%;
-  font-weight: bold;
-}
-
 .journey-picker__body {
   display: flex;
 }
@@ -29,7 +24,6 @@
 
 .journey-picker__controls {
   margin-top: 2rem;
-  text-align: right;
 }
 
 .journey-picker select {

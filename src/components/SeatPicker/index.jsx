@@ -23,9 +23,9 @@ export const SeatPicker = ({ seats, journeyId }) => {
   };
 
   return (
-    <div className="seat-picker">
-      <h3>Vyberte sedadlo</h3>
-      <div>
+    <div className="seat-picker container">
+      <h2>Vyberte sedadlo</h2>
+      <div className="seats">
         {seats.map((row, i) => (
           <div key={i}>
             {row.map((seat, k) => (
@@ -41,6 +41,7 @@ export const SeatPicker = ({ seats, journeyId }) => {
         ))}
       </div>
       <button
+        className="btn"
         onClick={handleBuy}
         type="button"
         disabled={selectedSeatNumber === null}

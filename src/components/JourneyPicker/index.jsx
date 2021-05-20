@@ -59,7 +59,7 @@ export const JourneyPicker = ({ onJourneyChange }) => {
 
   return (
     <div className="journey-picker container">
-      <div className="journey-picker__head">Kam chcete jet?</div>
+      <h2 className="journey-picker__head">Kam chcete jet?</h2>
       <div className="journey-picker__body">
         <form className="journey-picker__form" onSubmit={handleSubmit}>
           <label>
