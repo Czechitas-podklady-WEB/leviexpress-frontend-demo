@@ -1,5 +1,4 @@
 .journey-picker {
-  width: 24rem;
   margin: -2rem auto 0 auto;
   padding: 2rem;
 
@@ -12,6 +11,15 @@
 .journey-picker__head {
   font-size: 120%;
   font-weight: bold;
+}
+
+.journey-picker__body {
+  display: flex;
+}
+
+.journey-picker__form {
+  flex: 1;
+  margin-right: 2rem;
 }
 
 .journey-picker__label {
@@ -27,4 +35,9 @@
 .journey-picker select {
   display: block;
   width: 100%;
+}
+
+.journey-picker__map {
+  width: 20rem;
+  height: auto;
 }

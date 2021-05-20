@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { apiBaseUrl } from '../..';
 import { Seat } from '../Seat';
+import './style.css';
 
 export const SeatPicker = ({ seats, journeyId }) => {
   const [selectedSeatNumber, setSelectedSeatNumber] = useState(null);
@@ -22,7 +23,7 @@ export const SeatPicker = ({ seats, journeyId }) => {
   };
 
   return (
-    <div>
+    <div className="seat-picker">
       <h3>Vyberte sedadlo</h3>
       <div>
         {seats.map((row, i) => (
