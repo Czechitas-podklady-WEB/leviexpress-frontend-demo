@@ -12,7 +12,7 @@ export const Home = () => {
       { journey && (
         <>
           <JourneyDetail journey={journey} />
-          <SeatPicker seats={journey.seats} journeyId={journey.id} />
+          <SeatPicker seats={journey.seats} journeyId={journey.journeyId} />
         </>
       )}
     </>
