@@ -13,10 +13,30 @@ body {
   margin: 0;
 }
 
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   max-width: 720px;
   margin-right: auto;
   margin-left: auto;
+}
+
+header,
+footer {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  header,
+  footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 h2 {

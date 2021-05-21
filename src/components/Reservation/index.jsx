@@ -4,10 +4,28 @@ import { apiBaseUrl } from '../..';
 import './style.css';
 
 const ReservationInner = ({ fromCity, toCity, date, seatNumber }) => (
-  <p>
-    Dne <strong>{date}</strong> jedete z <strong>{fromCity}</strong> do{' '}
-    <strong>{toCity}</strong> na sedadle <strong>{seatNumber}</strong>.
-  </p>
+  <div className="reservation__body">
+    <div className="reservation__body__headings">
+      <p>Datum cesty:</p>
+      <p>Z:</p>
+      <p>Do:</p>
+      <p>Sedadlo:</p>
+    </div>
+    <div className="reservation__body__data">
+      <p>
+        <strong>{date}</strong>
+      </p>
+      <p>
+        <strong>{fromCity}</strong>
+      </p>
+      <p>
+        <strong>{toCity}</strong>
+      </p>
+      <p>
+        <strong>{seatNumber}</strong>
+      </p>
+    </div>
+  </div>
 );
 
 export const Reservation = () => {
@@ -25,7 +43,7 @@ export const Reservation = () => {
 
   return (
     <div className="reservation">
-      <h2>Detail cesty {id}</h2>
+      <h2>Vaše e-jízdenka</h2>
       {reservation && <ReservationInner {...reservation} />}
     </div>
   );
