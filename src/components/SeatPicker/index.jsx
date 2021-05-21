@@ -11,7 +11,7 @@ export const SeatPicker = ({ seats, journeyId }) => {
   const handleBuy = () => {
     const url = new URL(`${apiBaseUrl}/reserve`);
     url.searchParams.append('seat', selectedSeatNumber);
-    url.searchParams.append('journey', journeyId);
+    url.searchParams.append('journeyId', journeyId);
 
     fetch(url.toString(), {
       method: 'post',

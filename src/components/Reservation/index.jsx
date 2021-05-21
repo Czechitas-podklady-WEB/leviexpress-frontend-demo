@@ -16,10 +16,10 @@ const ReservationInner = ({ fromCity, toCity, date, seatNumber }) => (
         <strong>{date}</strong>
       </p>
       <p>
-        <strong>{fromCity}</strong>
+        <strong>{fromCity.name}</strong>
       </p>
       <p>
-        <strong>{toCity}</strong>
+        <strong>{toCity.name}</strong>
       </p>
       <p>
         <strong>{seatNumber}</strong>
