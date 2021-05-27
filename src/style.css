@@ -20,7 +20,7 @@ body {
 }
 
 .container {
-  max-width: 720px;
+  width: 720px;
   margin-right: auto;
   margin-left: auto;
 }

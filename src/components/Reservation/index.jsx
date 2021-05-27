@@ -3,12 +3,12 @@ import { useParams } from 'react-router';
 import { apiBaseUrl } from '../..';
 import './style.css';
 
-const ReservationInner = ({ fromCity, toCity, date, seatNumber }) => (
+const ReservationInfo = ({ fromCity, toCity, date, seatNumber }) => (
   <div className="reservation__body">
     <div className="reservation__body__headings">
       <p>Datum cesty:</p>
-      <p>Z:</p>
-      <p>Do:</p>
+      <p>Odjezd:</p>
+      <p>Příjezd:</p>
       <p>Sedadlo:</p>
     </div>
     <div className="reservation__body__data">
@@ -16,10 +16,10 @@ const ReservationInner = ({ fromCity, toCity, date, seatNumber }) => (
         <strong>{date}</strong>
       </p>
       <p>
-        <strong>{fromCity.name}</strong>
+        <strong>{fromCity.name}, {fromCity.time}</strong>
       </p>
       <p>
-        <strong>{toCity.name}</strong>
+        <strong>{toCity.name}, {toCity.time}</strong>
       </p>
       <p>
         <strong>{seatNumber}</strong>
@@ -29,9 +29,9 @@ const ReservationInner = ({ fromCity, toCity, date, seatNumber }) => (
 );
 
 export const Reservation = () => {
+  const [reservation, setResetvation] = useState(null);
   const { id } = useParams();
 
-  const [reservation, setResetvation] = useState(null);
   useEffect(() => {
     const url = new URL(`${apiBaseUrl}/reservation`);
     url.searchParams.append('id', id);
@@ -42,9 +42,19 @@ export const Reservation = () => {
   }, []);
 
   return (
-    <div className="reservation">
-      <h2>Vaše e-jízdenka</h2>
-      {reservation && <ReservationInner {...reservation} />}
+    <div className="reservation container">
+      <h2>Vaše e-jízdenka č. {id}</h2>
+      {
+        reservation === null ? 
+        null : (
+          <ReservationInfo 
+            fromCity={reservation.fromCity}
+            toCity={reservation.toCity}
+            date={reservation.date}
+            seatNumber={reservation.seatNumber} 
+          />
+        )
+      }
     </div>
   );
 };

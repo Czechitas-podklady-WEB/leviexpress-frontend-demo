@@ -6,19 +6,22 @@ import './style.css';
 
 export const SeatPicker = ({ seats, journeyId }) => {
   const [selectedSeatNumber, setSelectedSeatNumber] = useState(null);
-
   const history = useHistory();
-  const handleBuy = () => {
-    const url = new URL(`${apiBaseUrl}/reserve`);
-    url.searchParams.append('seat', selectedSeatNumber);
-    url.searchParams.append('journeyId', journeyId);
 
-    fetch(url.toString(), {
+  const handleBuy = () => {
+    fetch(`${apiBaseUrl}/reserve`, {
       method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        seat: selectedSeatNumber,
+        journeyId,
+      })
     })
       .then((response) => response.json())
-      .then((data) => {
-        history.push(`/reservation/${data.data.reservationId}`);
+      .then((json) => {
+        history.push(`/reservation/${json.data.reservationId}`);
       });
   };
 
