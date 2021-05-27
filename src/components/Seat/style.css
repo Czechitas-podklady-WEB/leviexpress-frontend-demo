@@ -1,26 +1,51 @@
 .seat {
-  border: none;
-  padding: 0;
-  background-color: transparent;
-  margin-right: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.25rem;
 }
 
-.seat--occupied {
-  filter: grayscale(1);
-  color: #888888;
+.seat:not(.seat--occupied) {
+  cursor: pointer;
+}
+
+.seat__rect {
+  fill: #69bffc;
+}
+
+.seat--occupied .seat__rect {
+  fill: #888;
+}
+
+.seat--selected .seat__rect, 
+.seat:not(.seat--occupied):hover .seat__rect {
+  fill: #ed6a5a;
 }
 
 .seat--selected {
-  color: red;
+  transform: scale(1.2);
 }
 
-.seat__in {
-  width: 3rem;
-  height: 3rem;
+.seat__path {
+  fill: none;
+  stroke: #888;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.seat__number {
-  fill: currentColor;
-  font-family: 'Open Sans';
+.seat--selected .seat__path, 
+.seat:not(.seat--occupied):hover .seat__path {
+  stroke: black;
+}
+
+.seat__text {
+  fill: #000000;
+  font-family: "Open Sans";
   font-size: 36px;
+  text-anchor: middle
+}
+
+.seat--selected .seat__text, 
+.seat:not(.seat--occupied):hover .seat__text {
+  fill: white;
 }
