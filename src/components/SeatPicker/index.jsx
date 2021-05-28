@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { apiBaseUrl } from '../..';
-import { Seat } from '../Seat';
+import { apiBaseUrl } from '../../index';
+import { SeatRow } from '../SeatRow';
 import './style.css';
 
 export const SeatPicker = ({ seats, journeyId }) => {
@@ -30,17 +30,12 @@ export const SeatPicker = ({ seats, journeyId }) => {
       <h2>Vyberte sedadlo</h2>
       <div className="seats">
         {seats.map((row, i) => (
-          <div key={i}>
-            {row.map((seat, k) => (
-              <Seat
-                key={k}
-                number={seat.number}
-                isOccupied={seat.isOccupied}
-                isSelected={seat.number === selectedSeatNumber}
-                onSelect={setSelectedSeatNumber}
-              />
-            ))}
-          </div>
+          <SeatRow 
+            key={i} 
+            row={row} 
+            selectedSeatNumber={selectedSeatNumber} 
+            onSelectSeat={setSelectedSeatNumber} 
+          />
         ))}
       </div>
       <button
