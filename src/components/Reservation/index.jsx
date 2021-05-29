@@ -3,33 +3,25 @@ import { useParams } from 'react-router';
 import { apiBaseUrl } from '../..';
 import './style.css';
 
-const ReservationInfo = ({ fromCity, toCity, date, seatNumber }) => (
+const ReservationBody = ({ fromCity, toCity, date, seatNumber }) => (
   <div className="reservation__body">
-    <div className="reservation__body__headings">
+    <div className="reservation__headings">
       <p>Datum cesty:</p>
       <p>Odjezd:</p>
       <p>Příjezd:</p>
       <p>Sedadlo:</p>
     </div>
-    <div className="reservation__body__data">
-      <p>
-        <strong>{date}</strong>
-      </p>
-      <p>
-        <strong>{fromCity.name}, {fromCity.time}</strong>
-      </p>
-      <p>
-        <strong>{toCity.name}, {toCity.time}</strong>
-      </p>
-      <p>
-        <strong>{seatNumber}</strong>
-      </p>
+    <div className="reservation__info">
+      <p>{date}</p>
+      <p>{fromCity.name}, {fromCity.time}</p>
+      <p>{toCity.name}, {toCity.time}</p>
+      <p>{seatNumber}</p>
     </div>
   </div>
 );
 
 export const Reservation = () => {
-  const [reservation, setResetvation] = useState(null);
+  const [reservation, setReservation] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -38,7 +30,7 @@ export const Reservation = () => {
 
     fetch(url.toString())
       .then((response) => response.json())
-      .then((data) => setResetvation(data.data));
+      .then((data) => setReservation(data.data));
   }, []);
 
   return (
@@ -47,7 +39,7 @@ export const Reservation = () => {
       {
         reservation === null ? 
         null : (
-          <ReservationInfo 
+          <ReservationBody
             fromCity={reservation.fromCity}
             toCity={reservation.toCity}
             date={reservation.date}

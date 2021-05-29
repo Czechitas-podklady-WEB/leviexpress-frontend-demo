@@ -4,7 +4,7 @@
   margin-right: 0.25rem;
 }
 
-.seat:not(.seat--occupied) {
+.seat:not(.seat--occupied):not(.seat--selected) {
   cursor: pointer;
 }
 
@@ -16,13 +16,13 @@
   fill: #888;
 }
 
+.seat--selected {
+  transform: scale(1.2);
+}
+
 .seat--selected .seat__rect, 
 .seat:not(.seat--occupied):hover .seat__rect {
   fill: #ed6a5a;
-}
-
-.seat--selected {
-  transform: scale(1.2);
 }
 
 .seat__path {
@@ -42,7 +42,8 @@
   fill: #000000;
   font-family: "Open Sans";
   font-size: 36px;
-  text-anchor: middle
+  text-anchor: middle;
+  user-select: none;
 }
 
 .seat--selected .seat__text, 

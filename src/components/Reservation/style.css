@@ -11,6 +11,10 @@
   display: flex;
 }
 
-.reservation__body__headings {
+.reservation__headings {
   margin-right: 2rem;
+}
+
+.reservation__info {
+  font-weight: bold;
 }
