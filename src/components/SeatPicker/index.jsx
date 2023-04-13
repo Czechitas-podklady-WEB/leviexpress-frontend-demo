@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { apiBaseUrl } from '../../index';
 import { SeatRow } from '../SeatRow';
 import './style.css';
 
 export const SeatPicker = ({ seats, journeyId }) => {
+  const navigate = useNavigate();
   const [selectedSeatNumber, setSelectedSeatNumber] = useState(null);
-  const history = useHistory();
-
+  
   const handleBuy = () => {
     fetch(`${apiBaseUrl}/reserve`, {
       method: 'post',
@@ -21,7 +21,7 @@ export const SeatPicker = ({ seats, journeyId }) => {
     })
       .then((response) => response.json())
       .then((json) => {
-        history.push(`/reservation/${json.data.reservationId}`);
+        navigate(`/reservation/${json.data.reservationId}`);
       });
   };
 
